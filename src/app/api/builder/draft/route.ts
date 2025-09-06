@@ -1,24 +1,18 @@
 // src/app/api/builder/draft/route.ts
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-const DRAFTS = new Map<string, any>(); // dev-only
+type Draft = { key: string; payload: any; updatedAt: number };
+const MEMORY = new Map<string, Draft>(); // dev-only
 
-export async function GET(req: Request) {
-  const { searchParams } = new URL(req.url);
-  const storeId = searchParams.get("storeId") || "";
-  const path = searchParams.get("path") || "/";
-  const key = `${storeId}:${path}`;
-  return NextResponse.json(
-    DRAFTS.get(key) ?? { version: 1, pageType: "CMS", sections: [] }
-  );
+export async function GET(req: NextRequest) {
+  const key = req.nextUrl.searchParams.get("key") ?? "";
+  const draft = MEMORY.get(key);
+  return NextResponse.json(draft?.payload ?? null);
 }
 
-export async function POST(req: Request) {
-  const { storeId, path, layout } = await req.json();
-  if (!storeId || !path || !layout) {
-    return NextResponse.json({ error: "Bad Request" }, { status: 400 });
-  }
-  const key = `${storeId}:${path}`;
-  DRAFTS.set(key, layout);
-  return NextResponse.json({ ok: true });
+export async function POST(req: NextRequest) {
+  const key = (req.nextUrl.searchParams.get("key") ?? "");
+  const payload = await req.json();
+  MEMORY.set(key, { key, payload, updatedAt: Date.now() });
+  return NextResponse.json({ ok: true, updatedAt: Date.now() });
 }

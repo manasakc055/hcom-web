@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hcom.dev/schemas/hss-page.schema.json",
+  "allOf": [{ "$ref": "hss-core.schema.json" }],
+  "type": "object",
+  "required": ["$schemaVersion", "path", "sections"],
+  "properties": {
+    "$schemaVersion": { "type": "string", "const": "1" },
+    "path": { "type": "string", "pattern": "^/" },
+    "seo": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "noindex": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "sections": {
+      "type": "array",
+      "items": { "$ref": "hss-core.schema.json#/$defs/BlockInstance" }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hcom.dev/schemas/hss-theme.schema.json",
+  "allOf": [{ "$ref": "hss-core.schema.json" }],
+  "type": "object",
+  "required": ["$schemaVersion","tokens"],
+  "properties": {
+    "$schemaVersion": { "type": "string", "const": "1" },
+    "tokens": {
+      "type": "object",
+      "properties": {
+        "colors": { "type": "object", "additionalProperties": { "type": "string" } },
+        "spacing": { "type": "object", "additionalProperties": { "type": "string" } },
+        "fontSizes": { "type": "object", "additionalProperties": { "type": "string" } },
+        "radii": { "type": "object", "additionalProperties": { "type": "string" } },
+        "shadows": { "type": "object", "additionalProperties": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "settings": {
+      "type": "object",
+      "properties": {
+        "containerWidth": { "type": "number" },
+        "breakpoints": {
+          "type": "object",
+          "properties": { "md": { "type": "number" }, "lg": { "type": "number" } },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

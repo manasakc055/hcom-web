@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hcom.dev/schemas/hss-partial.schema.json",
+  "allOf": [{ "$ref": "hss-core.schema.json" }],
+  "type": "object",
+  "required": ["$schemaVersion","key","sections"],
+  "properties": {
+    "$schemaVersion": { "type": "string", "const": "1" },
+    "key": { "enum": ["header","footer"] },
+    "sections": {
+      "type": "array",
+      "items": { "$ref": "hss-core.schema.json#/$defs/BlockInstance" }
+    }
+  },
+  "additionalProperties": false
+}

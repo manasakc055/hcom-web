@@ -7,7 +7,6 @@ export default function BlockPreview({ section }: { section: Section }) {
     const { image, headline, subhead, ctaText } = section.props || {};
     return (
       <div className="relative overflow-hidden rounded-xl bg-gray-100">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         {image ? (
           <img src={image} alt="" className="w-full h-40 object-cover opacity-90" />
         ) : (

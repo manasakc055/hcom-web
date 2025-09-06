@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hcom.dev/schemas/hss-core.schema.json",
+  "title": "Hcom Storefront Schema - Core v1",
+  "type": "object",
+  "required": ["$schemaVersion"],
+  "properties": {
+    "$schemaVersion": { "type": "string", "const": "1" },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "locale": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "Breakpoint": { "enum": ["base","md","lg"] },
+
+    "ResponsiveBool": {
+      "oneOf": [
+        { "type": "boolean" },
+        {
+          "type": "object",
+          "properties": {
+            "base": { "type": "boolean" },
+            "md": { "type": "boolean" },
+            "lg": { "type": "boolean" }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        }
+      ]
+    },
+
+    "ResponsiveNumber": {
+      "oneOf": [
+        { "type": "number" },
+        {
+          "type": "object",
+          "properties": {
+            "base": { "type": "number" },
+            "md": { "type": "number" },
+            "lg": { "type": "number" }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        }
+      ]
+    },
+
+    "ResponsiveToken": {
+      "description": "Token name, e.g. spacing scale or color token",
+      "oneOf": [
+        { "type": "string", "minLength": 1 },
+        {
+          "type": "object",
+          "properties": {
+            "base": { "type": "string" },
+            "md":   { "type": "string" },
+            "lg":   { "type": "string" }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        }
+      ]
+    },
+
+    "Style": {
+      "type": "object",
+      "properties": {
+        "margin":     { "$ref": "#/$defs/ResponsiveToken" },
+        "padding":    { "$ref": "#/$defs/ResponsiveToken" },
+        "background": { "$ref": "#/$defs/ResponsiveToken" },
+        "textColor":  { "$ref": "#/$defs/ResponsiveToken" }
+      },
+      "additionalProperties": false
+    },
+
+    "Asset": {
+      "type": "object",
+      "properties": {
+        "src":   { "type": "string", "minLength": 1 },
+        "alt":   { "type": "string" },
+        "focal": {
+          "type": "object",
+          "properties": { "x": { "type": "number" }, "y": { "type": "number" } },
+          "required": ["x","y"], "additionalProperties": false
+        }
+      },
+      "required": ["src"],
+      "additionalProperties": false
+    },
+
+    "Binding": {
+      "description": "Dynamic data binding",
+      "type": "object",
+      "properties": {
+        "$bind": {
+          "type": "object",
+          "properties": {
+            "source": { "enum": ["product","collection","theme","context"] },
+            "path":   { "type": "string", "minLength": 1 },
+            "format": { "type": "string" },
+            "fallback": {}
+          },
+          "required": ["source","path"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["$bind"],
+      "additionalProperties": false
+    },
+
+    "PropValue": {
+      "description": "Either a literal or a binding object",
+      "oneOf": [
+        { "type": "string" },
+        { "type": "number" },
+        { "type": "boolean" },
+        { "type": "array"  },
+        { "type": "object" },
+        { "$ref": "#/$defs/Binding" }
+      ]
+    },
+
+    "Analytics": {
+      "type": "object",
+      "properties": {
+        "click": { "type": "string" },
+        "view":  { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "BlockInstance": {
+      "type": "object",
+      "properties": {
+        "id":        { "type": "string", "minLength": 1 },
+        "type":      { "type": "string", "minLength": 1 },
+        "variant":   { "type": "string" },
+        "props":     { "type": "object" },
+
+        "style":     { "$ref": "#/$defs/Style" },
+        "visible":   { "$ref": "#/$defs/ResponsiveBool" },
+
+        "data": {
+          "type": "object",
+          "properties": {
+            "productId": { "type": "string" },
+            "collectionId": { "type": "string" }
+          },
+          "additionalProperties": true
+        },
+
+        "analytics": { "$ref": "#/$defs/Analytics" },
+
+        "slots": {
+          "description": "Optional named child areas",
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/BlockInstance" }
+          }
+        }
+      },
+      "required": ["id","type","props"],
+      "additionalProperties": false
+    }
+  }
+}
