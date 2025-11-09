@@ -1,0 +1,39 @@
+{
+  "id": "products",
+  "title": "Products API",
+  "description": "Manage products, attributes, and SKUs via HCOM APIs.",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "content": "The Products API lets you create, update, and list all product data programmatically. It supports variants, attributes, and inventory linkage."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Endpoints"
+    },
+    {
+      "type": "table",
+      "headers": ["Method", "Endpoint", "Description"],
+      "rows": [
+        ["GET", "/api/v1/products", "List all products"],
+        ["POST", "/api/v1/products", "Create a new product"],
+        ["GET", "/api/v1/products/:id", "Retrieve product details"]
+      ]
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "content": "curl -X GET https://api.hcom.dev/v1/products"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Create product variants dynamically",
+        "Attach attributes and images",
+        "Connect with inventory service"
+      ]
+    }
+  ]
+}

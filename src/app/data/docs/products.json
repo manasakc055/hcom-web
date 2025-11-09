@@ -1,0 +1,25 @@
+{
+  "id": "products",
+  "title": "Products API",
+  "description": "Manage products, attributes, and SKUs via HCOM APIs.",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "content": "The Products API lets you create, update, and list all product data programmatically."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Endpoints"
+    },
+    {
+      "type": "table",
+      "headers": ["Method", "Endpoint", "Description"],
+      "rows": [
+        ["GET", "/api/v1/products", "List all products"],
+        ["POST", "/api/v1/products", "Create a new product"],
+        ["GET", "/api/v1/products/:id", "Retrieve product details"]
+      ]
+    }
+  ]
+}
