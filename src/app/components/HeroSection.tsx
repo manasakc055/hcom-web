@@ -4,8 +4,8 @@
 import { motion } from "framer-motion";
 import im from "@/app/assets/img.png"
 import Image from "next/image";
-import razorpay from "@/app/assets/razorpay.png"
-import paytm from "@/app/assets/stripe.png"
+import razorpay from "@/app/assets/razorpay.svg"
+// import paytm from "@/app/assets/p-1a.svg"
 
 import shiprocket from "@/app/assets/shiprocket.svg"
 
@@ -165,7 +165,7 @@ export default function HeroSection() {
 
           {/* Integration Logos */}
           <div className="mt-10 flex items-center gap-6 opacity-70">
-            {[razorpay, paytm, shiprocket].map((logo, i) => (
+            {[razorpay, shiprocket].map((logo, i) => (
               <Image
                 key={i}
                 src={logo}

@@ -6,12 +6,12 @@ import { Search } from 'lucide-react';
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Product", href: "/product" },
+  // { name: "Product", href: "/product" },
   { name: "Features", href: "/features" },
-  { name: "Capabilities", href: "/capabilities" },
+  // { name: "Capabilities", href: "/capabilities" },
   { name: "Pricing", href: "/pricing" },
   { name: "Integrations", href: "/integrations" },
-  { name: "Contact", href: "/contact" }, // or keep #footer if contact is a section on home
+  // { name: "Contact", href: "/contact" }, // or keep #footer if contact is a section on home
 ];
 
 

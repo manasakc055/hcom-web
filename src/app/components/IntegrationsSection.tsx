@@ -4,10 +4,16 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionTitle } from "./SectionTitle";
 
-import razorpay from "@/app/assets/razorpay.png"
-import paytm from "@/app/assets/stripe.png"
+// import razorpay from "@/app/assets/p-1.svg"
+import paytm from "@/app/assets/paytm.svg"
 
-import shiprocket from "@/app/assets/shiprocket.svg"
+import stripe from "@/app/assets/stripe.svg"
+import phonepe from "@/app/assets/phonepe-1.svg"
+import bluedart from "@/app/assets/bluedart-logo-hd.png"
+
+import shiprocket from "@/app/assets/shiprocket-logo.png"
+// import delhvery from "@/app/assets/idcfOjjJix_logos.png"
+
 import Image from "next/image";
 
 const integrations = [
@@ -15,28 +21,31 @@ const integrations = [
     category: "Payments",
     description: "Easily connect trusted payment gateways to process transactions securely and globally.",
     logos: [
-      { src: razorpay, name: "Razorpay" },
-      { src: paytm, name: "Stripe" },
-      { src: "", name: "PhonePe" },
+      { src: paytm, name: "paytm" },
+
+      // { src: razorpay, name: "Razorpay" },
+      { src: stripe, name: "Stripe" },
+      { src: phonepe, name: "PhonePe" },
     ],
   },
   {
     category: "Shipping",
     description: "Automate fulfillment with your preferred shipping and logistics partners.",
     logos: [
-      { src: "shiprocket.svg", name: "Shiprocket" },
-      { src: "delhivery.svg", name: "Delhivery" },
-      { src: "bluedart.svg", name: "BlueDart" },
+      { src: shiprocket, name: "Shiprocket" },
+      // { src: delhvery, name: "Sdelhvery" },
+
+      { src: bluedart, name: "BlueDart" },
     ],
   },
-  {
-    category: "Accounting",
-    description: "Sync financials seamlessly with popular accounting platforms.",
-    logos: [
-      { src: "zoho.svg", name: "Zoho Books" },
-      { src: "tally.svg", name: "Tally ERP" },
-    ],
-  },
+  // {
+  //   category: "Accounting",
+  //   description: "Sync financials seamlessly with popular accounting platforms.",
+  //   logos: [
+  //     { src: "zoho.svg", name: "Zoho Books" },
+  //     { src: "tally.svg", name: "Tally ERP" },
+  //   ],
+  // },
 ];
 
 export default function IntegrationsSection() {
@@ -72,11 +81,10 @@ export default function IntegrationsSection() {
             <button
               key={item.category}
               onClick={() => setActive(item.category)}
-              className={`px-5 py-2 rounded-full text-sm font-medium border transition-all duration-300 ${
-                active === item.category
+              className={`px-5 py-2 rounded-full text-sm font-medium border transition-all duration-300 ${active === item.category
                   ? "bg-hcom-primary text-white border-hcom-primary shadow-md"
                   : "bg-white text-hcom-text border-hcom-border hover:bg-hcom-muted"
-              }`}
+                }`}
             >
               {item.category}
             </button>

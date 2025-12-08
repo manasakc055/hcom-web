@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { EarlyAccessDialog } from "./EarlyAccessDialog";
 
 export default function PilotProgramSection() {
   return (
     <section
       id="pilot"
-      className="relative py-28 overflow-hidden text-center text-white bg-gradient-to-r from-hcom-primary via-hcom-secondary to-hcom-primary"
+      className="relative py-28 overflow-hidden text-center text-white bg-gradient-to-r from-[#111827]  via-gray-600 to-[#111827]"
     >
       {/* Animated gradient overlay */}
       <motion.div
@@ -51,10 +52,17 @@ export default function PilotProgramSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.7 }}
         >
-          <button className="mt-10 relative overflow-hidden bg-white text-hcom-primary font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all hover:scale-[1.03]">
+          {/* <button className="mt-10 relative overflow-hidden bg-white text-hcom-primary font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all hover:scale-[1.03]">
             <span className="relative z-10">Request Early Access</span>
             <span className="absolute inset-0 bg-gradient-to-r from-hcom-primary/10 to-hcom-secondary/10 opacity-0 hover:opacity-100 transition" />
-          </button>
+          </button> */}
+          <div className="text-center py-16">
+            <EarlyAccessDialog
+              triggerClassName="mt-10 relative overflow-hidden bg-white text-hcom-primary font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all hover:scale-[1.03]"
+              outlineClassName="absolute inset-0 rounded-xl border border-hcom-primary/20"
+              rippleClassName="absolute inset-0 bg-gradient-to-r from-hcom-primary/10 to-hcom-secondary/10 opacity-0 hover:opacity-100 transition"
+            />
+          </div>
         </motion.div>
 
         {/* Optional trust or CTA hint line */}

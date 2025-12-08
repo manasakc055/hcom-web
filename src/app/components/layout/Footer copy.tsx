@@ -1,35 +1,50 @@
+"use client";
 import React from "react";
 
-const CONTACT_EMAIL = "hello@hcom.app";
+const CONTACT_EMAIL = "hello@unistacx.com";
 
 export default function Footer() {
   return (
-    <footer id="footer" className="relative bg-[#0B1220] text-slate-300">
-      <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#7C5CFF]/50 to-transparent" />
-      <div className="relative mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+    <footer
+      id="footer"
+      className="relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-950 text-gray-300"
+    >
+      {/* Top subtle border glow */}
+      <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gray-500/40 to-transparent" />
+
+      <div className="relative mx-auto max-w-7xl px-6 py-16">
+        <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
+          {/* Left Section */}
           <div className="space-y-6">
+            {/* Brand */}
             <div className="flex items-center gap-3">
-              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#2D3FE0] to-[#7C5CFF] text-lg font-semibold text-white">
-                H
+              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-gray-100 to-gray-400 text-lg font-bold text-gray-900 shadow-inner">
+                U
               </span>
               <div>
-                <p className="text-base font-semibold text-white">HCOM</p>
-                <p className="text-sm text-slate-400">
-                  Future-ready commerce, crafted for builders and operators.
+                <p className="text-base font-semibold text-white">
+                  UniStacx Commerce
+                </p>
+                <p className="text-sm text-gray-400">
+                  Unified headless commerce, built for modern teams.
                 </p>
               </div>
             </div>
-            <p className="max-w-lg text-sm text-slate-400">
-              Design, automate, and scale immersive storefronts without friction. HCOM pairs headless flexibility with
-              cinematic motion so every brand moment feels intentional.
+
+            {/* About */}
+            <p className="max-w-lg text-sm text-gray-400 leading-relaxed">
+              Design, automate, and scale immersive storefronts without
+              friction. UniStacx connects your products, orders, payments, and
+              integrations — all from a single, reliable engine.
             </p>
-            <div className="flex flex-wrap items-center gap-3 text-sm text-slate-300">
-              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 font-medium text-white/80">
+
+            {/* Contact */}
+            <div className="flex flex-wrap items-center gap-3 text-sm text-gray-200">
+              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 font-medium text-gray-300">
                 {CONTACT_EMAIL}
               </span>
               <a
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:border-white/30 hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 font-medium text-gray-200 transition-colors hover:border-white/30 hover:text-white"
                 href={`mailto:${CONTACT_EMAIL}`}
               >
                 Contact us
@@ -37,41 +52,115 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Right Section */}
           <div className="grid gap-8 sm:grid-cols-3">
+            {/* Product */}
             <div className="space-y-3">
-              <h4 className="text-sm font-semibold uppercase tracking-[0.25em] text-[#7C5CFF]">Product</h4>
-              <ul className="space-y-2 text-sm text-slate-400">
-                <li><a className="hover:text-white" href="#product">Overview</a></li>
-                <li><a className="hover:text-white" href="#features">Features</a></li>
-                <li><a className="hover:text-white" href="#capabilities">Capabilities</a></li>
-                <li><a className="hover:text-white" href="#demo">Live demo</a></li>
+              <h4 className="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400">
+                Product
+              </h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>
+                  <a className="hover:text-white" href="/product">
+                    Overview
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-white" href="/features">
+                    Features
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-white" href="/capabilities">
+                    Capabilities
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-white" href="/#demo">
+                    Live demo
+                  </a>
+                </li>
               </ul>
             </div>
+
+            {/* Resources */}
             <div className="space-y-3">
-              <h4 className="text-sm font-semibold uppercase tracking-[0.25em] text-[#7C5CFF]">Resources</h4>
-              <ul className="space-y-2 text-sm text-slate-400">
-                <li><a className="hover:text-white" href="#why">Why HCOM</a></li>
-                <li><a className="hover:text-white" href="#integrations">Integrations</a></li>
-                <li><a className="hover:text-white" href="#cta">Early access</a></li>
+              <h4 className="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400">
+                Resources
+              </h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>
+                  <a className="hover:text-white" href="/why">
+                    Why UniStacx
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-white" href="/integrations">
+                    Integrations
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-white" href="/#cta">
+                    Early Access
+                  </a>
+                </li>
               </ul>
             </div>
+
+            {/* Connect */}
             <div className="space-y-3">
-              <h4 className="text-sm font-semibold uppercase tracking-[0.25em] text-[#7C5CFF]">Connect</h4>
-              <ul className="space-y-2 text-sm text-slate-400">
-                <li><a className="hover:text-white" href="https://linkedin.com" target="_blank">LinkedIn</a></li>
-                <li><a className="hover:text-white" href="https://twitter.com" target="_blank">Twitter</a></li>
-                <li><a className="hover:text-white" href="https://github.com" target="_blank">GitHub</a></li>
+              <h4 className="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400">
+                Connect
+              </h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>
+                  <a
+                    className="hover:text-white"
+                    href="https://linkedin.com/company/unistacx"
+                    target="_blank"
+                  >
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="hover:text-white"
+                    href="https://twitter.com"
+                    target="_blank"
+                  >
+                    Twitter
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="hover:text-white"
+                    href="https://github.com/unistacx"
+                    target="_blank"
+                  >
+                    GitHub
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} HCOM. All rights reserved.</p>
+        {/* Bottom Section */}
+        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} UniStacx Technologies Pvt. Ltd. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-4">
-            <a className="hover:text-white" href="#integrations">Integration docs</a>
-            <a className="hover:text-white" href={`mailto:${CONTACT_EMAIL}?subject=Support`}>Support</a>
-            <a className="hover:text-white" href="#top">Back to top</a>
+            <a className="hover:text-white" href="/integrations">
+              Integration Docs
+            </a>
+            <a
+              className="hover:text-white"
+              href={`mailto:${CONTACT_EMAIL}?subject=Support`}
+            >
+              Support
+            </a>
+            <a className="hover:text-white" href="#top">
+              Back to top
+            </a>
           </div>
         </div>
       </div>

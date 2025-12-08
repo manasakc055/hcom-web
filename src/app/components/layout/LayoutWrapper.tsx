@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Navbar from "./navbar";
-import Footer from "./Footer";
+import Footer from "./Footer copy";
 
 export default function LayoutWrapper({
   children,
