@@ -7,7 +7,7 @@ import { CheckCircleIcon } from "@heroicons/react/24/outline";
 
 
 // Local fallback if SectionTitle is not imported globally
-function SectionTitle({ title, subtitle }) {
+function SectionTitle({ title, subtitle }: any) {
   return (
     <div className="text-center max-w-2xl mx-auto">
       <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-hcom-text">{title}</h2>

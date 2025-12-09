@@ -3,9 +3,24 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import paytm from "@/app/assets/paytm.svg";
+import stripe from "@/app/assets/stripe.svg";
+import phonepe from "@/app/assets/phonepe-1.svg";
+import bluedart from "@/app/assets/bluedart-logo-hd.png";
+import shiprocket from "@/app/assets/shiprocket-logo.png";
+
+
+interface IntegrationsType{
+  category:string,
+  description:string,
+   logos: {
+        src: string;
+        name: string;
+    }[];
+}
 
 // Temporary fallback until real SectionTitle path confirmed
-function SectionTitle({ title, subtitle }) {
+function SectionTitle({ title, subtitle }:{title:string, subtitle:string}) {
   return (
     <div className="text-center max-w-2xl mx-auto">
       <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-hcom-text">{title}</h2>
@@ -16,11 +31,7 @@ function SectionTitle({ title, subtitle }) {
   );
 }
 
-import paytm from "@/app/assets/paytm.svg";
-import stripe from "@/app/assets/stripe.svg";
-import phonepe from "@/app/assets/phonepe-1.svg";
-import bluedart from "@/app/assets/bluedart-logo-hd.png";
-import shiprocket from "@/app/assets/shiprocket-logo.png";
+
 
 const integrations = [
   {
@@ -45,7 +56,7 @@ const integrations = [
 
 export default function IntegrationsSection() {
   const [active, setActive] = useState("Payments");
-  const activeData = integrations.find((i) => i.category === active);
+  const activeData:IntegrationsType | undefined = integrations.find((i) => i.category === active);
 
   return (
     <section
@@ -98,17 +109,17 @@ export default function IntegrationsSection() {
             className="mt-12 bg-white/70 backdrop-blur-xl border border-hcom-border rounded-2xl shadow-soft p-6 sm:p-10"
           >
             <h3 className="text-xl sm:text-2xl font-semibold mb-1 text-hcom-text">
-              {activeData.category} Integrations
+              {activeData?.category} Integrations
             </h3>
             <p className="text-hcom-subtext max-w-xl mx-auto text-sm sm:text-base">
-              {activeData.description}
+              {activeData?.description}
             </p>
 
             {/* RESPONSIVE LOGO GRID */}
             <div
               className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:flex lg:flex-wrap lg:justify-center gap-4 sm:gap-6 md:gap-8"
             >
-              {activeData.logos.map((logo, j) => (
+              {activeData?.logos.map((logo, j) => (
                 <motion.div
                   key={j}
                   whileHover={{ scale: 1.08 }}

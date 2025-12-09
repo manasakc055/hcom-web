@@ -1,8 +1,13 @@
 import DocsLayout from "../components/DocsLayout";
+import type { DocPage } from "../../types/docs";
+
 import { DocRenderer } from "../components/DocRenderer";
 
+
+
+
 export default function DocsIndex() {
-  const overviewData = {
+  const overviewData : DocPage = {
     id: "overview",
     title: "HCOM Documentation",
     description: "Your guide to the HCOM Platform APIs and architecture.",

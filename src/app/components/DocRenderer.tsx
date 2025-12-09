@@ -24,7 +24,7 @@ export const DocRenderer: React.FC<DocRendererProps> = ({ blocks }) => {
           // -----------------------------
           case "heading": {
             const Tag = (`h${block.level || 2}`) as keyof JSX.IntrinsicElements;
-            const sizes = {
+            const sizes: Record<number, string> = {
               1: "text-4xl",
               2: "text-3xl",
               3: "text-2xl",
