@@ -103,7 +103,7 @@ export default function PilotProgramSection() {
         </motion.div>
 
         <p className="mt-10 text-sm text-white/60">
-          These 5 pilot partnerships will shape the foundation of the HCOM ecosystem.
+          These 5 pilot partnerships will shape the foundation of the Unistacx Commerce ecosystem.
         </p>
       </div>
     </section>

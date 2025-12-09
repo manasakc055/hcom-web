@@ -9,7 +9,7 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "HCOM — Headless Commerce Platform",
+  title: "Unistacx Commerce Platform",
   description: "Composable, API-first commerce infrastructure to build, automate, and scale your business.",
 };
 
