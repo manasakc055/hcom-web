@@ -216,15 +216,20 @@ export function EarlyAccessDialog({
         onClick={() => setOpen(true)}
         className={triggerClassName}
       >
-       Request Early access
+        Request Early access
         <span className={outlineClassName} />
         <span className={rippleClassName} />
       </button>
 
       {open && (
         <div
-          className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/40 backdrop-blur-sm px-4"
-          role="dialog"
+          className="
+    fixed inset-0 z-[70] 
+    flex items-center justify-center 
+    min-h-screen
+    bg-slate-950/40 backdrop-blur-sm 
+    px-4
+  "          role="dialog"
           aria-modal="true"
           aria-labelledby={titleId}
           aria-describedby={descriptionId}
@@ -248,7 +253,7 @@ export function EarlyAccessDialog({
                 id={titleId}
                 className="text-sm font-semibold text-hcom-subtext uppercase tracking-[0.35em] text-[#7C5CFF]"
               >
-                Join the waitlist
+                
               </p>
               <h3 className="text-2xl font-semibold text-slate-900">
                 Request Early Access
@@ -305,8 +310,26 @@ export function EarlyAccessDialog({
                     />
                   </label>
                 </div>
-
                 <div className="grid gap-4 sm:grid-cols-2">
+                  {/* Mobile Number Field */}
+                  <label className="text-sm text-start font-medium text-slate-700">
+                    Mobile number
+                    <input
+                      type="tel"
+                      name="phone"
+                      required
+                      pattern="[0-9]{10}"                      maxLength={10}
+                      placeholder="+91"
+                      className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm
+        text-slate-900 placeholder:text-slate-400 focus:border-black focus:outline-none focus:ring-2 focus:ring-black/40"
+                      onInput={(e) => {
+                        e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "");
+                      }}
+                    />
+                    <p className="text-xs text-red-600 mt-1 hidden peer-invalid:block">
+                      Please enter a valid 10-digit mobile number.
+                    </p>
+                  </label>
                   <label className="text-sm text-start font-medium text-slate-700">
                     Company
                     <input
@@ -317,24 +340,7 @@ export function EarlyAccessDialog({
                       className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-black focus:outline-none focus:ring-2 focus:ring-black/40"
                     />
                   </label>
-                  <label className="text-sm text-start font-medium text-slate-700">
-                    Team size
-                    <select
-                      name="team-size"
-                      required
-                      defaultValue=""
-                      className="mt-2 w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 focus:border-black focus:outline-none focus:ring-2 focus:ring-black/40"
-                    >
-                      <option value="" disabled>
-                        Select range
-                      </option>
-                      <option value="1-5">1 – 5</option>
-                      <option value="6-15">6 – 15</option>
-                      <option value="16-50">16 – 50</option>
-                      <option value="51-200">51 – 200</option>
-                      <option value="200+">200+</option>
-                    </select>
-                  </label>
+
                 </div>
 
                 <label className="text-sm text-start font-medium text-slate-700">

@@ -1,5 +1,8 @@
 "use client";
 import React from "react";
+import Image from "next/image";
+import logo from "@/app/assets/uc-logo-black.svg";
+import Link from "next/link";
 
 const CONTACT_EMAIL = "hello@unistacx.com";
 
@@ -17,8 +20,8 @@ export default function Footer() {
           {/* Left Section */}
           <div className="space-y-6">
             {/* Brand */}
-            <div className="flex items-center gap-3">
-              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-gray-100 to-gray-400 text-lg font-bold text-gray-900 shadow-inner">
+            <div className="flex items-center  gap-3">
+              {/* <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-gray-100 to-gray-400 text-lg font-bold text-gray-900 shadow-inner">
                 U
               </span>
               <div>
@@ -28,7 +31,18 @@ export default function Footer() {
                 <p className="text-sm text-gray-400">
                   Unified headless commerce, built for modern teams.
                 </p>
-              </div>
+              </div> */}
+               {/* Logo */}
+               <div className="bg-white rounded-md px-2 py-1">
+                   <Link
+                        href="/"
+                        className="font-bold text-xl text-hcom-text flex items-center gap-2"
+                      >
+                        <Image src={logo} alt="logo" height={40} />
+                      </Link>
+
+               </div>
+                   
             </div>
 
             {/* About */}
@@ -60,26 +74,32 @@ export default function Footer() {
                 Product
               </h4>
               <ul className="space-y-2 text-sm text-gray-400">
+             
                 <li>
+                  <a className="hover:text-white" href="#features">
+                    Features
+                  </a>
+                </li>
+                 <li>
+                  <a className="hover:text-white" href="#pricing">
+                    Pricing
+                  </a>
+                </li>
+                {/*   <li>
                   <a className="hover:text-white" href="/product">
                     Overview
                   </a>
                 </li>
-                <li>
-                  <a className="hover:text-white" href="/features">
-                    Features
-                  </a>
-                </li>
-                <li>
+                 <li>
                   <a className="hover:text-white" href="/capabilities">
                     Capabilities
                   </a>
-                </li>
+                </li> 
                 <li>
                   <a className="hover:text-white" href="/#demo">
                     Live demo
                   </a>
-                </li>
+                </li>*/}
               </ul>
             </div>
 
@@ -90,25 +110,25 @@ export default function Footer() {
               </h4>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li>
-                  <a className="hover:text-white" href="/why">
-                    Why UniStacx
+                  <a className="hover:text-white" href="#why">
+                    Why UniStacx commerce
                   </a>
                 </li>
                 <li>
-                  <a className="hover:text-white" href="/integrations">
+                  <a className="hover:text-white" href="#integrations">
                     Integrations
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a className="hover:text-white" href="/#cta">
                     Early Access
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
 
             {/* Connect */}
-            <div className="space-y-3">
+            {/* <div className="space-y-3">
               <h4 className="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400">
                 Connect
               </h4>
@@ -141,7 +161,7 @@ export default function Footer() {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -149,9 +169,9 @@ export default function Footer() {
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} UniStacx Technologies Pvt. Ltd. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-4">
-            <a className="hover:text-white" href="/integrations">
+            {/* <a className="hover:text-white" href="/integrations">
               Integration Docs
-            </a>
+            </a> */}
             <a
               className="hover:text-white"
               href={`mailto:${CONTACT_EMAIL}?subject=Support`}

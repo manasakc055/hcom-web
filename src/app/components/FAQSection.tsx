@@ -7,23 +7,27 @@ import { SectionTitle } from "./SectionTitle";
 const faqs = [
   {
     q: "What is Headless Commerce?",
-    a: "Headless commerce separates the frontend from the backend, giving businesses flexibility to build custom storefronts using APIs.",
+    a: "A system where backend and frontend are decoupled, allowing complete flexibility across web, app, chat, POS, and more..",
   },
   {
-    q: "Who is HCOM for?",
-    a: "HCOM is built for scaling businesses that have outgrown Shopify, WooCommerce, or custom PHP stacks but need flexibility without enterprise bloat.",
+    q: "Who is  Unistacx commerce for?",
+    a: "Brands, agencies, and teams needing deeper control over catalog, inventory, orders, and integrations — and preparing to scale across channels.",
   },
   {
     q: "Can I use my existing payment gateway?",
-    a: "Yes. You can connect Razorpay, Stripe, PhonePe, or your preferred gateway using our integration layer.",
+    a: "Yes.  Unistacx commerce supports multiple payment providers and custom gateway integrations.",
   },
   {
     q: "How long does onboarding take?",
-    a: "Typically 2–5 days, depending on catalog size and existing system integrations.",
+    a: "With predefined templates and structured APIs, onboarding can be completed in days — not months.",
+  },
+    {
+    q: "Is  Unistacx commerce agentic?",
+    a: "The platform is designed for agentic commerce. Upcoming releases will include AI shopping agents, smart recommendations, personalization, and conversational commerce.",
   },
   {
-    q: "Is it SaaS or self-hosted?",
-    a: "We provide a managed cloud version (SaaS) and offer self-hosted enterprise deployment options upon request.",
+    q: "Is it self-hosted?",
+    a: " Unistacx commerce is cloud-hosted with secure infrastructure. A self-hosted version will be available for enterprise clients (coming soon).",
   },
 ];
 
@@ -36,7 +40,7 @@ export default function FAQSection() {
         <SectionTitle title="Frequently Asked Questions" subtitle="Answers to the most common queries" />
         <div className="mt-10 space-y-4">
           {faqs.map((f, i) => (
-            <div key={i} className="border border-white/10 rounded-xl overflow-hidden">
+            <div key={i} className="border border-gray/10 rounded-xl overflow-hidden">
               <button
                 className="w-full text-left px-6 py-4 flex justify-between items-center"
                 onClick={() => setOpen(open === i ? null : i)}

@@ -13,10 +13,10 @@ export default function Navbar() {
   const navItems = [
     { name: "Home", href: "/" },
     // { name: "Product", href: "/product" },
-    { name: "Features", href: "/features" },
+    { name: "Features", href: "#features" },
     // { name: "Capabilities", href: "/capabilities" },
-    { name: "Pricing", href: "/pricing" },
-    { name: "Integrations", href: "/integrations" },
+    { name: "Pricing", href: "#pricing" },
+    { name: "Integrations", href: "#integrations" },
     // { name: "Contact", href: "/contact" },
   ];
 
@@ -47,7 +47,10 @@ export default function Navbar() {
         {/* Desktop Button */}
         <div className="hidden md:block">
           <EarlyAccessDialog
-            triggerClassName="relative overflow-hidden bg-hcom-primary hover:bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium transition-all hover:scale-[1.03]"
+            triggerClassName=" inline-flex items-center justify-center gap-2 
+    rounded-md bg-gradient-to-r from-gray-900 via-gray-700 to-gray-500 
+    px-8 py-3 font-semibold text-white shadow-md 
+    transition-transform duration-300 hover:-translate-y-1 hover:brightness-110"
             outlineClassName="absolute inset-0 rounded-lg border border-white/20"
             rippleClassName="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 hover:opacity-100 transition"
           />

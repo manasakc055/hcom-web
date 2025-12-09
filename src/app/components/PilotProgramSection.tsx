@@ -7,67 +7,103 @@ export default function PilotProgramSection() {
   return (
     <section
       id="pilot"
-      className="relative py-28 overflow-hidden text-center text-white bg-gradient-to-r from-[#111827]  via-gray-600 to-[#111827]"
+      className="relative py-32 overflow-hidden text-center text-white bg-gradient-to-b from-[#0A0A0A] via-[#111827] to-[#0A0A0A]"
     >
-      {/* Animated gradient overlay */}
+      {/* Soft ambient spotlight */}
       <motion.div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15)_0%,transparent_70%)]"
-        animate={{ opacity: [0.6, 0.9, 0.6] }}
-        transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-      />
-
-      {/* Floating highlight glow */}
-      <motion.div
-        className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-white/10 blur-3xl"
-        animate={{ y: [0, -30, 0], opacity: [0.4, 0.7, 0.4] }}
+        className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08)_0%,transparent_70%)]"
+        animate={{ opacity: [0.4, 0.7, 0.4] }}
         transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
       />
 
+      {/* Floating glows */}
+      <motion.div
+        className="absolute -bottom-24 -left-24 w-[500px] h-[500px] rounded-full bg-white/10 blur-3xl"
+        animate={{ y: [0, -40, 0], opacity: [0.3, 0.6, 0.3] }}
+        transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute -top-20 -right-20 w-[450px] h-[450px] rounded-full bg-indigo-500/10 blur-3xl"
+        animate={{ y: [0, 30, 0], opacity: [0.2, 0.5, 0.2] }}
+        transition={{ repeat: Infinity, duration: 14, ease: "easeInOut" }}
+      />
+
       <div className="relative max-w-4xl mx-auto px-6">
+
+        {/* Title */}
         <motion.h2
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl font-extrabold tracking-tight"
+          className="text-5xl md:text-6xl font-extrabold tracking-tight text-white drop-shadow-sm"
         >
-          Join the <span className="text-white/90">HCOM Pilot Program</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-white">
+            5 Pilot Partnerships.
+          </span>
+          <br />
+          <span className="text-2xl md:text-3xl font-light opacity-80">
+            Perfect for teams preparing to scale.
+          </span>
         </motion.h2>
 
+        {/* Subtitle */}
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.7 }}
-          className="mt-6 text-lg md:text-xl opacity-90 leading-relaxed"
+          className="mt-8 text-lg md:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto"
         >
-          Be among the first to experience our headless commerce platform.
-          Get <strong>personal onboarding</strong>, <strong>dedicated support</strong>, and
-          <strong> exclusive early-access pricing</strong> tailored for scaling businesses.
+          Join if you are a growing brand, engineering-driven team, or anyone building the next-generation of commerce experiences.
         </motion.p>
 
+        {/* NEW CONTENT — Who Should Join */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.7 }}
+          transition={{ delay: 0.3, duration: 0.7 }}
+          className="grid md:grid-cols-2 gap-6 mt-14 text-left"
         >
-          {/* <button className="mt-10 relative overflow-hidden bg-white text-hcom-primary font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all hover:scale-[1.03]">
-            <span className="relative z-10">Request Early Access</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-hcom-primary/10 to-hcom-secondary/10 opacity-0 hover:opacity-100 transition" />
-          </button> */}
-          <div className="text-center py-16">
-            <EarlyAccessDialog
-              triggerClassName="mt-10 relative overflow-hidden bg-white text-hcom-primary font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all hover:scale-[1.03]"
-              outlineClassName="absolute inset-0 rounded-xl border border-hcom-primary/20"
-              rippleClassName="absolute inset-0 bg-gradient-to-r from-hcom-primary/10 to-hcom-secondary/10 opacity-0 hover:opacity-100 transition"
-            />
-          </div>
+          {[
+            "Expanding your brand across channels",
+            "Outgrowing template-based platforms or plugin-heavy systems",
+            "Building custom storefronts, apps, or mobile experiences",
+            "Needing deeper control over catalog, inventory & workflows",
+            "Wanting API-first, headless infrastructure",
+            "Looking for engineering-level collaboration with our core team",
+          ].map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: idx * 0.1, duration: 0.5 }}
+              className="flex items-start gap-3 bg-white/5 border border-white/10 p-5 rounded-2xl backdrop-blur-md hover:bg-white/10 transition"
+            >
+              <span className="text-green-400 text-xl mt-1">●</span>
+              <p className="text-white/90 text-base leading-relaxed">{item}</p>
+            </motion.div>
+          ))}
         </motion.div>
 
-        {/* Optional trust or CTA hint line */}
-        <p className="mt-8 text-sm text-white/70">
-          Limited to <strong>5 onboarding slots</strong> — early partners receive lifetime support credits.
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.7 }}
+          className="text-center mt-14"
+        >
+          <EarlyAccessDialog
+            triggerClassName="mt-10 relative overflow-hidden bg-white text-black font-semibold px-10 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all hover:scale-105"
+            outlineClassName="absolute inset-0 rounded-xl border border-white/20"
+            rippleClassName="absolute inset-0 bg-gradient-to-r from-gray-200/20 to-white/20 opacity-0 hover:opacity-100 transition"
+          />
+        </motion.div>
+
+        <p className="mt-10 text-sm text-white/60">
+          These 5 pilot partnerships will shape the foundation of the HCOM ecosystem.
         </p>
       </div>
     </section>

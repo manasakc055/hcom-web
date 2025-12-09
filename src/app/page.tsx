@@ -11,6 +11,7 @@ import PilotProgramSection from "./components/PilotProgramSection";
 import PricingSection from "./components/PricingSection";
 import FAQSection from "./components/FAQSection";
 import Footer from "./components/layout/Footer copy";
+import HowItWorksSection from "./components/HowItWorksSection";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -162,6 +163,7 @@ export default function Home() {
       <HeroSection />
       <FeaturesSection />
       <ArchitectureSection />
+      <HowItWorksSection/>
       <IntegrationsSection />
       <PilotProgramSection />
       <PricingSection />

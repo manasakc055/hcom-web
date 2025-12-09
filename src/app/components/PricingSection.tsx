@@ -2,41 +2,22 @@
 
 import { motion } from "framer-motion";
 import { SectionTitle } from "./SectionTitle";
+import { EarlyAccessDialog } from "./EarlyAccessDialog-pricing";
 
 const plans = [
   {
-    name: "Starter",
-    tagline: "Perfect for growing brands",
-    desc: "All the essentials to launch and manage your first storefront with headless flexibility.",
+    name: "Custom Pricing for Scaling Brands",
+    tagline: "Choose a plan that fits your technical and operational needs.",
+    desc: "Every business is unique. Unistacx commerce offers modular pricing based on:",
     features: [
-      "Product & Inventory APIs",
-      "Checkout & Order Management",
-      "Basic Integrations (Payments, Shipping)",
-      "Email Support",
+      "API usage",
+      "Order volume",
+      "Integrations required",
+      "Additional services (ETL, agents, connectors)",
+      "Multi-channel extensions"
     ],
   },
-  {
-    name: "Growth",
-    tagline: "Built for scaling businesses",
-    desc: "Advanced tools and APIs for multi-storefront brands and expanding teams.",
-    features: [
-      "Multi-channel integrations",
-      "Advanced Inventory & Pricing Engine",
-      "Analytics & Reporting Dashboard",
-      "Priority Support & Sandbox Access",
-    ],
-  },
-  {
-    name: "Enterprise",
-    tagline: "Custom-tailored for large organizations",
-    desc: "Dedicated infrastructure, private SLAs, and enterprise integrations for high-volume commerce.",
-    features: [
-      "Dedicated Infrastructure",
-      "Custom SLAs & Compliance",
-      "Private AI Add-ons",
-      "Team Training & Onboarding",
-    ],
-  },
+
 ];
 
 export default function PricingSection() {
@@ -51,7 +32,12 @@ export default function PricingSection() {
           subtitle="Flexible and negotiable pricing — tailored to your business scale."
         />
 
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
+        {/* <div className="mt-16  grid place-items-center gap-8 md:grid-cols-3 "> */}
+        <div
+  className={`mt-16 grid gap-8 place-items-center ${
+    plans.length === 1 ? "grid-cols-1" : "md:grid-cols-3"
+  }`}
+>   
           {plans.map((plan, i) => (
             <motion.div
               key={i}
@@ -77,9 +63,26 @@ export default function PricingSection() {
                 ))}
               </ul>
 
-              <button className="w-full bg-hcom-primary hover:bg-hcom-primaryHover text-white font-semibold py-3 rounded-xl transition">
+                   {/* <button className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-gradient-to-r from-gray-900 via-gray-700 to-gray-500 px-6 py-3 font-semibold text-white shadow-md transition-transform duration-300 hover:-translate-y-1 hover:brightness-110">
                 Request Custom Quote
-              </button>
+              </button> */}
+               {/* CTA */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.5, duration: 0.7 }}
+                        className="text-center mt-14"
+                      >
+                        <EarlyAccessDialog
+                          triggerClassName=" inline-flex w-full items-center justify-center gap-2 
+    rounded-md bg-gradient-to-r from-gray-900 via-gray-700 to-gray-500 
+    px-8 py-3 font-semibold text-white shadow-md 
+    transition-transform duration-300 hover:-translate-y-1 hover:brightness-110"
+                          outlineClassName="absolute inset-0 rounded-xl border border-white/20"
+                          rippleClassName="absolute inset-0 bg-gradient-to-r from-gray-200/20 to-white/20 opacity-0 hover:opacity-100 transition"
+                        />
+                      </motion.div>
             </motion.div>
           ))}
         </div>
